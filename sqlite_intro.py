@@ -38,3 +38,11 @@ cursor.executemany('INSERT INTO users (name, age) VALUES (?, ?)', users)
 
 conn.commit()
 print("Пользователи добавлены!")
+
+# Получаем всех пользователей
+cursor.execute('SELECT * FROM users')
+all_users = cursor.fetchall()
+
+print("\n--- Все пользователи ---")
+for user in all_users:
+    print(f"id: {user[0]}, имя: {user[1]}, возраст: {user[2]}")
