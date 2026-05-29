@@ -8,3 +8,17 @@ conn = sqlite3.connect('mybase.db')
 cursor = conn.cursor()
 
 print("База данных создана и подключена!")
+
+# Создаём таблицу users
+cursor.execute('''
+    CREATE TABLE IF NOT EXISTS users (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        name TEXT NOT NULL,
+        age INTEGER NOT NULL
+    )
+''')
+
+# Сохраняем изменения
+conn.commit()
+
+print("Таблица users создана!")
