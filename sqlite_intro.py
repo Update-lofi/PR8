@@ -78,3 +78,7 @@ remaining_users = cursor.fetchall()
 print("\n--- После удаления id=2 ---")
 for user in remaining_users:
     print(f"id: {user[0]}, имя: {user[1]}, возраст: {user[2]}")
+    
+# Закрываем соединение
+conn.close()
+print("\nСоединение закрыто.")
