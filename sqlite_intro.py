@@ -46,3 +46,11 @@ all_users = cursor.fetchall()
 print("\n--- Все пользователи ---")
 for user in all_users:
     print(f"id: {user[0]}, имя: {user[1]}, возраст: {user[2]}")
+
+# Получаем пользователей старше 25 лет
+cursor.execute('SELECT * FROM users WHERE age > 25')
+older_users = cursor.fetchall()
+
+print("\n--- Пользователи старше 25 ---")
+for user in older_users:
+    print(f"id: {user[0]}, имя: {user[1]}, возраст: {user[2]}")
