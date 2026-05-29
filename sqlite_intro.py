@@ -118,3 +118,9 @@ print("\n--- Все товары ---")
 for item in all_items:
     print(f"{item[0]}. {item[1]} - {item[2]} руб, в наличии: {item[3]}")
 
+cursor.execute('SELECT * FROM products WHERE price < 100')
+older_items = cursor.fetchall()
+
+print("\n--- Товары с ценой меньше 100 рублей ---")
+for item in older_items:
+    print(f"{item[0]}, {item[1]}, {item[2]}")
