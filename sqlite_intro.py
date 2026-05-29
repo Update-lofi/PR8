@@ -123,4 +123,11 @@ older_items = cursor.fetchall()
 
 print("\n--- Товары с ценой меньше 100 рублей ---")
 for item in older_items:
-    print(f"{item[0]}, {item[1]}, {item[2]}")
+    print(f"{item[1]}")
+
+cursor.execute('SELECT * FROM products WHERE quantity == 0')
+older_items = cursor.fetchall()
+
+print("\n--- Товары которых нет в наличии ---")
+for item in older_items:
+    print(f" {item[1]}")
