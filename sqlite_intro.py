@@ -100,3 +100,12 @@ cursor.execute('''
 ''')
 conn.commit()
 print("Таблица products создана!")
+
+items = [
+    ('Яблоки', 50, 100),
+    ('Бананы', 80, 50),
+    ('Молоко', 70, 30),
+    ("Хлеб", 40, 0),
+    ("Сыр", 150, 20)
+]
+cursor.executemany('INSERT INTO items (name, price, quantity) VALUES (?, ?, ?)', items)
