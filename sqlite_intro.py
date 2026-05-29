@@ -82,3 +82,21 @@ for user in remaining_users:
 # Закрываем соединение
 conn.close()
 print("\nСоединение закрыто.")
+
+
+# Задание 10(новое)
+
+# Открываем новое соединение (или используем старое)
+conn = sqlite3.connect('mybase.db')
+cursor = conn.cursor()
+
+cursor.execute('''
+    CREATE TABLE IF NOT EXISTS products (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        name TEXT NOT NULL,
+        price INTEGER NOT NULL,
+        quantity INTEGER DEFAULT 0
+    )
+''')
+conn.commit()
+print("Таблица products создана!")
