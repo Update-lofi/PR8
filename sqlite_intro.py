@@ -54,3 +54,15 @@ older_users = cursor.fetchall()
 print("\n--- Пользователи старше 25 ---")
 for user in older_users:
     print(f"id: {user[0]}, имя: {user[1]}, возраст: {user[2]}")
+
+# Увеличиваем возраст всех пользователей на 1 год
+cursor.execute('UPDATE users SET age = age + 1')
+conn.commit()
+
+# Проверяем результат
+cursor.execute('SELECT * FROM users')
+updated_users = cursor.fetchall()
+
+print("\n--- После увеличения возраста ---")
+for user in updated_users:
+    print(f"id: {user[0]}, имя: {user[1]}, возраст: {user[2]}")
