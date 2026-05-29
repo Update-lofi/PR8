@@ -22,3 +22,19 @@ cursor.execute('''
 conn.commit()
 
 print("Таблица users создана!")
+
+# Добавляем одного пользователя
+cursor.execute('''
+    INSERT INTO users (name, age) VALUES (?, ?)
+''', ('Анна', 25))
+
+# Добавляем нескольких пользователей
+users = [
+    ('Иван', 30),
+    ('Мария', 22),
+    ('Петр', 35)
+]
+cursor.executemany('INSERT INTO users (name, age) VALUES (?, ?)', users)
+
+conn.commit()
+print("Пользователи добавлены!")
