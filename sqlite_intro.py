@@ -66,3 +66,15 @@ updated_users = cursor.fetchall()
 print("\n--- После увеличения возраста ---")
 for user in updated_users:
     print(f"id: {user[0]}, имя: {user[1]}, возраст: {user[2]}")
+
+# Удаляем пользователя с id = 2
+cursor.execute('DELETE FROM users WHERE id = ?', (2,))
+conn.commit()
+
+# Проверяем результат
+cursor.execute('SELECT * FROM users')
+remaining_users = cursor.fetchall()
+
+print("\n--- После удаления id=2 ---")
+for user in remaining_users:
+    print(f"id: {user[0]}, имя: {user[1]}, возраст: {user[2]}")
